@@ -1,0 +1,12 @@
+sudo apt install alsa-utils #sollte schon installiert sein
+sudo apt install mpd
+sudo apt purge pulseaudio
+sudo apt install mpc
+mpc clear
+mpc load radiosender
+
+?? sudo adduser pi dialout
+?? sudo touch local.rules
+??	ACTION=="add", KERNEL=="ttyAMA0", MODE="0666"
+# Console auf UART deaktivieren via raspi-config
+systemctl enable wlan-radio.service --now

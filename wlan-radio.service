@@ -1,0 +1,14 @@
+[Unit]
+Description=WLAN Radio autostart
+After=network-online.target mpd.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/wlan_radio
+ExecStart=/home/pi/wlan_radio/wlan_radio01
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

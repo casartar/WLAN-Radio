@@ -1,0 +1,14 @@
+[Unit]
+Description=WLAN Radio autostart
+After=network-online.target mpd.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=radio
+WorkingDirectory=/home/radio/WLAN-Radio
+ExecStart=/usr/bin/python3 /home/radio/WLAN-Radio/radio.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
